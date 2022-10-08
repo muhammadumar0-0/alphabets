@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@100&display=swap" rel="stylesheet">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@100&display=swap');
+    </style>    
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div id="diva">
+            <div class="alphabet" id="a" onclick="play('apple')">A</div>
+            <div class="alphabet" id="b" onclick="play('ball')">B</div>
+            <div class="alphabet" id="c" onclick="play('cat')">C</div>
+            <div class="alphabet" id="d" onclick="play('dog')">D</div>
+            <div class="alphabet" id="e" onclick="play('elephant')">E</div>
+            <div class="alphabet" id="f" onclick="play('frog')">F</div>
+            <div class="alphabet" id="g" onclick="play('gem')">G</div>
+            <div class="alphabet" id="h" onclick="play('hammer')">H</div>
+            <div class="alphabet" id="i" onclick="play('igloo')">I</div>
+            <div class="alphabet" id="j" onclick="play('juice')">J</div>
+            <div class="alphabet" id="k" onclick="play('ketchup')">K</div>
+            <div class="alphabet" id="l" onclick="play('lion')">L</div>
+            <div class="alphabet" id="m" onclick="play('mongoose')">M</div>
+            <div class="alphabet" id="n" onclick="play('n')">N</div>
+            <div class="alphabet" id="o" onclick="play('o')">O</div>
+            <div class="alphabet" id="p" onclick="play('p')">P</div>
+            <div class="alphabet" id="q" onclick="play('q')">Q</div>
+            <div class="alphabet" id="r" onclick="play('r')">R</div>
+            <div class="alphabet" id="s" onclick="play('s')">S</div>
+            <div class="alphabet" id="t" onclick="play('t')">T</div>
+            <div class="alphabet" id="u" onclick="play('u')">U</div>
+            <div class="alphabet" id="v" onclick="play('v')">V</div>
+            <div class="alphabet" id="w" onclick="play('w')">W</div>
+            <div class="alphabet" id="x" onclick="play('x')">X</div>
+            <div class="alphabet" id="y" onclick="play('y')">Y</div>
+            <div class="alphabet" id="z" onclick="play('z')">Z</div>
+        </div>
+        <div id="diva2">
+            <div class="word">
+                <p id="cancel" onclick="showTable()">X</p>
+                <p id="letter"></p>
+                <img id="image" src="" alt="">
+                <p id="word"></p>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+
+    function showTable(){
+        document.getElementById('diva').style.visibility = 'visible'; 
+        document.getElementById('diva2').style.visibility = 'hidden';
+    }
+
+        function play(word) {
+            new Audio('sounds/clap.wav').play()
+            let alphabet = word.charAt(0);
+            new Audio(`sounds/${alphabet}.wav`).play()
+            document.getElementById('diva').style.visibility = 'hidden';
+            document.getElementById('diva2').style.visibility = 'visible';
+
+            document.getElementById('letter').innerHTML = alphabet.toUpperCase();
+            document.getElementById('word').innerHTML = word.toUpperCase();
+            document.getElementById('image').src = `pictures/${word}.png`;
+            document.getElementById('image').alt = `Picture of ${word}`;
+        }
+        function playsound() {
+            //switch () {}
+            new Audio('sounds/clap.wav').play();
+        }
+        window.addEventListener('keydown', playsound)
+</script>
+</html>
